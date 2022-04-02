@@ -1,0 +1,8 @@
+{
+    "name": "Scout TF2",
+    "version_number": "0.1.0",
+    "website_url": "",
+    "description": "Very early dev release for upcoming Scout TF2 mod. Please read the mod description before using",
+    "dependencies": [
+    ]
+}

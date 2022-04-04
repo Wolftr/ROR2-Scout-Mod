@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1315221604
+CRC: 977419786
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 487f9943e91e2e77c7c4b25101486d71
+    Hash: bbb26d59b0b40f48b8922214a9cc68ef
   TypeTreeHash:
     serializedVersion: 2
     Hash: 7ff0af8fdde604f0f6a3e90aa8699f03
@@ -102,7 +102,7 @@ Assets:
 - Assets/EffectExamples/FireExplosionEffects/Materials/DebrisParticle.mat
 - Assets/ScoutAssets/Animation/maskGesture.mask
 - Assets/ScoutAssets/Textures/sandmanBall.png
-- Assets/ScoutAssets/ScoutSandmanBall.prefab
+- Assets/ScoutAssets/BallGhost.prefab
 - Assets/ScoutAssets/Animation/animScoutMenu.controller
 - Assets/ScoutAssets/Icons/texVergilAchievement.png
 - Assets/EffectExamples/Misc Effects/Materials/SandSwirlsParticle.mat

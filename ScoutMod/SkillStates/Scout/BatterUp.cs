@@ -10,9 +10,9 @@ namespace ScoutMod.SkillStates.Scout
 {
 	public class BatterUp : BaseSkillState
     {
-        public static float damageCoefficient = 4f;
-        public static float procCoefficient = 1f;
-        public static float baseDuration = 0.75f;
+        public static float damageCoefficient = Modules.StaticValues.sandmanDamageCoefficient;
+        public static float procCoefficient = 1.5f;
+        public static float baseDuration = 0.25f;
         public static float throwForce = 80f;
 
         private float fireTime;

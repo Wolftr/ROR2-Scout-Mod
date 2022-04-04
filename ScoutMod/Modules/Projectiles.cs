@@ -8,13 +8,13 @@ namespace ScoutMod.Modules
 {
     internal static class Projectiles
     {
-        internal static GameObject bombPrefab;
+        internal static GameObject ballPrefab;
 
         internal static void RegisterProjectiles()
         {
             CreateBall();
 
-            AddProjectile(bombPrefab);
+            AddProjectile(ballPrefab);
         }
 
         internal static void AddProjectile(GameObject projectileToAdd)
@@ -24,9 +24,10 @@ namespace ScoutMod.Modules
 
         private static void CreateBall()
         {
-            bombPrefab = CloneProjectilePrefab("CommandoGrenadeProjectile", "HenryBombProjectile");
+            ballPrefab = CloneProjectilePrefab("CommandoGrenadeProjectile", "HenryBombProjectile");
 
-            ProjectileImpactExplosion ballImpactEffect = bombPrefab.GetComponent<ProjectileImpactExplosion>();
+            ProjectileImpactExplosion ballImpactEffect = ballPrefab.GetComponent<ProjectileImpactExplosion>();
+            InitializeImpactExplosion(ballImpactEffect);
 
             ballImpactEffect.blastRadius = 16f;
             ballImpactEffect.destroyOnEnemy = true;
@@ -36,9 +37,31 @@ namespace ScoutMod.Modules
             ballImpactEffect.timerAfterImpact = true;
             ballImpactEffect.lifetimeAfterImpact = 0.1f;
 
-            /*ProjectileController bombController = bombPrefab.GetComponent<ProjectileController>();
-            if (Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("HenryBombGhost") != null) bombController.ghostPrefab = CreateGhostPrefab("HenryBombGhost");
-            bombController.startSound = "";*/
+            ProjectileController ballController = ballPrefab.GetComponent<ProjectileController>();
+            if (Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("ballGhost") != null) ballController.ghostPrefab = CreateGhostPrefab("ballGhost");
+            //bombController.startSound = "";
+        }
+
+        private static void InitializeImpactExplosion(ProjectileImpactExplosion projectileImpactExplosion)
+        {
+            projectileImpactExplosion.blastDamageCoefficient = 0.5f;
+            projectileImpactExplosion.blastProcCoefficient = 0.5f;
+            projectileImpactExplosion.blastRadius = 0.5f;
+            projectileImpactExplosion.bonusBlastForce = Vector3.zero;
+            projectileImpactExplosion.childrenCount = 0;
+            projectileImpactExplosion.childrenDamageCoefficient = 0f;
+            projectileImpactExplosion.childrenProjectilePrefab = null;
+            projectileImpactExplosion.destroyOnEnemy = false;
+            projectileImpactExplosion.destroyOnWorld = false;
+            projectileImpactExplosion.falloffModel = RoR2.BlastAttack.FalloffModel.None;
+            projectileImpactExplosion.fireChildren = false;
+            projectileImpactExplosion.impactEffect = null;
+            projectileImpactExplosion.lifetime = 0f;
+            projectileImpactExplosion.lifetimeAfterImpact = 0f;
+            projectileImpactExplosion.lifetimeRandomOffset = 0f;
+            projectileImpactExplosion.offsetForLifetimeExpiredSound = 0f;
+            projectileImpactExplosion.timerAfterImpact = false;
+            projectileImpactExplosion.GetComponent<ProjectileDamage>().damageType = DamageType.Stun1s;
         }
 
         private static GameObject CreateGhostPrefab(string ghostName)

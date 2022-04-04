@@ -132,7 +132,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8095357156490214923}
   m_Layer: 0
-  m_Name: ScoutSandmanBall
+  m_Name: BallGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -294,7 +294,7 @@ Transform:
   m_GameObject: {fileID: 8513665326699385914}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_LocalScale: {x: 300, y: 300, z: 300}
   m_Children:
   - {fileID: 2075010076540247832}
   m_Father: {fileID: 6223777642769805584}

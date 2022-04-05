@@ -82,8 +82,6 @@ namespace ScoutMod.Modules
             //swordHitSoundEvent = CreateNetworkSoundEventDef("HenrySwordHit");
 
             //bombExplosionEffect = LoadEffect("BombExplosionEffect", "HenryBombExplosion");
-
-            sandmanBaseball = Assets.LoadEffect("ScoutSandmanBaseball");
         }
 
         private static GameObject CreateTracer(string originalTracerName, string newTracerName)

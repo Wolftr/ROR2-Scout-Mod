@@ -1,4 +1,5 @@
 ﻿using EntityStates;
+using R2API.Networking;
 using RoR2;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -7,11 +8,9 @@ namespace ScoutMod.SkillStates.Scout
 {
 	internal class DrinkCola : BaseSkillState
 	{
-		public static float duration = 8;
+		public static int duration = 8;
 
 		private Animator animator;
-
-		bool buffApplied = false;
 
 		public override void OnEnter()
 		{
@@ -24,17 +23,17 @@ namespace ScoutMod.SkillStates.Scout
 		{
 			base.FixedUpdate();
 
-			if (base.isAuthority && base.fixedAge >= 0.5f && !buffApplied)
+			if (base.isAuthority && base.fixedAge >= 0.5f)
 			{
-				if (NetworkServer.active)
-				{
-					base.characterBody.AddTimedBuff(Modules.Buffs.miniCritBuff, DrinkCola.duration);
-					buffApplied = true;
-				}
-
 				this.outer.SetNextStateToMain();
 				return;
 			}
+		}
+
+		public override void OnExit()
+		{
+			base.OnExit();
+			base.characterBody.ApplyBuff(Modules.Buffs.miniCritBuff.buffIndex, 1, DrinkCola.duration);
 		}
 	}
 }

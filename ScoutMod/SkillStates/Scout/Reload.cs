@@ -45,7 +45,7 @@ namespace ScoutMod.SkillStates.Scout
 			if (unbrokenReload)
 				targetReloadTime = reloadTime / base.attackSpeedStat;
 			else
-				targetReloadTime = reloadTimeFirst / (base.attackSpeedStat / 4);
+				targetReloadTime = reloadTimeFirst / base.attackSpeedStat;
 
 
 			currentReloadTime += Time.deltaTime;

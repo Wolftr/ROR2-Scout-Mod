@@ -13,7 +13,7 @@ namespace ScoutMod.SkillStates.Scout
         public static float damageCoefficient = Modules.StaticValues.sandmanDamageCoefficient;
         public static float procCoefficient = 1.5f;
         public static float baseDuration = 0.25f;
-        public static float throwForce = 80f;
+        public static float throwForce = 150f;
 
         private float fireTime;
         private bool hasFired;

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Security;
 using System.Security.Permissions;
 using UnityEngine;
+using System;
 
 [module: UnverifiableCode]
 [assembly: SecurityPermission(SecurityAction.RequestMinimum, SkipVerification = true)]
@@ -25,14 +26,10 @@ namespace ScoutMod
 
     public class ScoutPlugin : BaseUnityPlugin
     {
-        // if you don't change these you're giving permission to deprecate the mod-
-        //  please change the names to your own stuff, thanks
-        //   this shouldn't even have to be said
         public const string MODUID = "com.vulf.ScoutMod";
         public const string MODNAME = "ScoutMod";
         public const string MODVERSION = "0.1.0";
 
-        // a prefix for name tokens to prevent conflicts- please capitalize all name tokens for convention
         public const string DEVELOPER_PREFIX = "VULF";
 
         public static ScoutPlugin instance;
@@ -65,9 +62,10 @@ namespace ScoutMod
         {
             // run hooks here, disabling one is as simple as commenting out the line
             On.RoR2.CharacterBody.RecalculateStats += CharacterBody_RecalculateStats;
+            On.RoR2.TeleporterInteraction.Start += Teleporter_StartEvent;
         }
 
-        private void CharacterBody_RecalculateStats(On.RoR2.CharacterBody.orig_RecalculateStats orig, CharacterBody self)
+		private void CharacterBody_RecalculateStats(On.RoR2.CharacterBody.orig_RecalculateStats orig, CharacterBody self)
         {
             orig(self);
 
@@ -79,5 +77,30 @@ namespace ScoutMod
                 }
             }
         }
+
+		private void Teleporter_StartEvent(On.RoR2.TeleporterInteraction.orig_Start orig, TeleporterInteraction self)
+		{
+            orig(self);
+
+            if (self.holdoutZoneController.holdoutZoneShape == HoldoutZoneController.HoldoutZoneShape.Count)
+                return;
+
+            // Bind the function for adding the charge rate
+            self.holdoutZoneController.calcChargeRate += RecalculateChargeRate;
+		}
+
+        public void RecalculateChargeRate(ref float rate)
+		{
+            bool hasScoutTeamMember = false;
+
+            IReadOnlyCollection<TeamComponent> teamComponents = TeamComponent.GetTeamMembers(TeamIndex.Player);
+
+			foreach (TeamComponent component in teamComponents)
+                if (component.body.bodyIndex == BodyCatalog.FindBodyIndex("ScoutBody"))
+                    hasScoutTeamMember = true;
+
+            if (hasScoutTeamMember)
+                rate *= 2;
+		}
     }
 }

@@ -13,6 +13,6 @@ namespace ScoutMod.Modules
 
         internal const float scattergunDamageCoefficient = 0.5f;
 
-        internal const float sandmanDamageCoefficient = 1;
+        internal const float sandmanDamageCoefficient = 3;
     }
 }

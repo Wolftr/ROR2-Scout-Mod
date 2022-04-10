@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 977419786
+CRC: 1310811340
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: bbb26d59b0b40f48b8922214a9cc68ef
+    Hash: c8f398ec44ff4364ff3047ad01910e5f
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 7ff0af8fdde604f0f6a3e90aa8699f03
+    Hash: 1302f8d96b0521f9d6ff73c73c8771ba
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -40,6 +40,8 @@ ClassTypes:
 - Class: 91
   Script: {instanceID: 0}
 - Class: 95
+  Script: {instanceID: 0}
+- Class: 96
   Script: {instanceID: 0}
 - Class: 108
   Script: {instanceID: 0}
@@ -76,7 +78,6 @@ Assets:
 - Assets/ScoutAssets/Animation/maskAimBazooka.mask
 - Assets/EffectExamples/FireExplosionEffects/Prefabs/DrippingFlames.prefab
 - Assets/ScoutAssets/Icons/texShotgunIcon.png
-- Assets/ScoutAssets/Icons/texPrimaryIcon.png
 - Assets/EffectExamples/FireExplosionEffects/Textures/SmokePuffNormalSheet.tif
 - Assets/EffectExamples/Misc Effects/Prefabs/DustMotesEffect.prefab
 - Assets/ScoutAssets/Icons/texBazookaIcon.png
@@ -89,11 +90,11 @@ Assets:
 - Assets/EffectExamples/Misc Effects/Prefabs/ElectricalSparksEffect.prefab
 - Assets/ScoutAssets/Animation/maskAimYaw.mask
 - Assets/ScoutAssets/Icons/texDanteAchievement.png
-- Assets/ScoutAssets/Icons/texSecondaryIcon.png
 - Assets/ScoutAssets/Animation/animScout.controller
 - Assets/Materials/matFloor.mat
 - Assets/EffectExamples/Misc Effects/Prefabs/SparksEffect.prefab
 - Assets/EffectExamples/FireExplosionEffects/Materials/FlameParticle.mat
+- Assets/ScoutAssets/Icons/texSecondaryIcon.png
 - Assets/ScoutAssets/Icons/texHenryAchievement.png
 - Assets/EffectExamples/FireExplosionEffects/Prefabs/FlamesEffects.prefab
 - Assets/EffectExamples/FireExplosionEffects/Prefabs/FlamesParticleEffect.prefab
@@ -141,6 +142,7 @@ Assets:
 - Assets/ScoutAssets/Materials/EyeLeft.mat
 - Assets/EffectExamples/FireExplosionEffects/Materials/PlasmaExplosionParticle.mat
 - Assets/EffectExamples/FireExplosionEffects/Prefabs/TorchEffect.prefab
+- Assets/ScoutAssets/Icons/texPrimaryIcon.png
 - Assets/EffectExamples/Misc Effects/Materials/SparkParticle.mat
 - Assets/EffectExamples/FireExplosionEffects/Materials/EmbersParticle.mat
 - Assets/ScoutAssets/Materials/Scattergun.mat
@@ -150,7 +152,9 @@ Assets:
 - Assets/FBX/animHenryHolstered.fbx
 - Assets/EffectExamples/Misc Effects/Prefabs/SandSwirlsEffect.prefab
 - Assets/EffectExamples/FireExplosionEffects/Materials/PlasmaFireParticle.mat
+- Assets/ScoutAssets/Materials/BallTrailMat.mat
 - Assets/ScoutAssets/Icons/texPistolIcon.png
+- Assets/ScoutAssets/Icons/texSpecialIcon.png
 - Assets/ScoutAssets/Mesh/scattergun.fbx
 - Assets/EffectExamples/FireExplosionEffects/Materials/LightningParticle.mat
 - Assets/EffectExamples/FireExplosionEffects/Prefabs/SmokeEffect.prefab
@@ -173,7 +177,6 @@ Assets:
 - Assets/EffectExamples/Misc Effects/Materials/DustMoteParticle.mat
 - Assets/ScoutAssets/Textures/scattergun.png
 - Assets/Materials/graves_skin25_muzzle_flash_00.mat
-- Assets/ScoutAssets/Icons/texSpecialIcon.png
 - Assets/EffectExamples/FireExplosionEffects/Prefabs/BigExplosionEffect.prefab
 - Assets/EffectExamples/FireExplosionEffects/Prefabs/FlameSmoke.prefab
 Dependencies: []

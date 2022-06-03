@@ -7,6 +7,7 @@ using System.Security;
 using System.Security.Permissions;
 using UnityEngine;
 using System;
+using RoR2.Projectile;
 
 [module: UnverifiableCode]
 [assembly: SecurityPermission(SecurityAction.RequestMinimum, SkipVerification = true)]
@@ -63,9 +64,10 @@ namespace ScoutMod
             // run hooks here, disabling one is as simple as commenting out the line
             On.RoR2.CharacterBody.RecalculateStats += CharacterBody_RecalculateStats;
             On.RoR2.TeleporterInteraction.Start += Teleporter_StartEvent;
+            On.RoR2.HealthComponent.TakeDamage += HealthComponent_TakeDamage;
         }
 
-		private void CharacterBody_RecalculateStats(On.RoR2.CharacterBody.orig_RecalculateStats orig, CharacterBody self)
+        private void CharacterBody_RecalculateStats(On.RoR2.CharacterBody.orig_RecalculateStats orig, CharacterBody self)
         {
             orig(self);
 
@@ -102,5 +104,17 @@ namespace ScoutMod
             if (hasScoutTeamMember)
                 rate *= 2;
 		}
+
+        public void HealthComponent_TakeDamage(On.RoR2.HealthComponent.orig_TakeDamage orig, HealthComponent self, DamageInfo damageInfo)
+        {
+            orig(self, damageInfo);
+
+            CharacterBody characterBody = self.body;
+            if(characterBody && damageInfo.attacker.GetComponent<CharacterBody>().baseNameToken == ScoutPlugin.DEVELOPER_PREFIX + "_SCOUT_BODY_NAME" && damageInfo.damage < 1)
+            {
+                DamageReport report = new DamageReport(damageInfo, self, 0.01f, 9999f);
+                Modules.Projectiles.milkPrefab.GetComponent<ProjectileInflictTimedBuff>().OnDamageInflictedServer(report);
+            }
+        }
     }
 }

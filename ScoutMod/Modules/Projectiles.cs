@@ -9,12 +9,15 @@ namespace ScoutMod.Modules
     internal static class Projectiles
     {
         internal static GameObject ballPrefab;
+        internal static GameObject milkPrefab;
 
         internal static void RegisterProjectiles()
         {
             CreateBall();
+            CreateMilk();
 
             AddProjectile(ballPrefab);
+            AddProjectile(milkPrefab);
         }
 
         internal static void AddProjectile(GameObject projectileToAdd)
@@ -24,7 +27,7 @@ namespace ScoutMod.Modules
 
         private static void CreateBall()
         {
-            ballPrefab = CloneProjectilePrefab("CommandoGrenadeProjectile", "HenryBombProjectile");
+            ballPrefab = CloneProjectilePrefab("CommandoGrenadeProjectile", "SandmanProjectile");
 
             ProjectileImpactExplosion ballImpactEffect = ballPrefab.GetComponent<ProjectileImpactExplosion>();
             InitializeImpactExplosion(ballImpactEffect);
@@ -40,6 +43,26 @@ namespace ScoutMod.Modules
             ProjectileController ballController = ballPrefab.GetComponent<ProjectileController>();
             if (Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("ballGhost") != null) ballController.ghostPrefab = CreateGhostPrefab("ballGhost");
             //bombController.startSound = "";
+        }
+
+        private static void CreateMilk()
+        {
+            milkPrefab = CloneProjectilePrefab("CommandoGrenadeProjectile", "MadMilkProjectile");
+
+            ProjectileImpactExplosion milkImpactEffect = milkPrefab.GetComponent<ProjectileImpactExplosion>();
+            InitializeImpactExplosion(milkImpactEffect);
+            milkImpactEffect.blastRadius = 16f;
+            milkImpactEffect.destroyOnEnemy = true;
+            milkImpactEffect.lifetime = 12f;
+            milkImpactEffect.timerAfterImpact = true;
+            milkImpactEffect.lifetimeAfterImpact = 0.1f;
+
+            ProjectileController milkController = milkPrefab.GetComponent<ProjectileController>();
+            if (Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("milkGhost") != null) milkController.ghostPrefab = CreateGhostPrefab("milkGhost");
+
+            ProjectileInflictTimedBuff inflictDebuff = milkPrefab.AddComponent<ProjectileInflictTimedBuff>();
+            inflictDebuff.buffDef = Modules.Buffs.madMilkDebuff;
+            inflictDebuff.duration = 4f;
         }
 
         private static void InitializeImpactExplosion(ProjectileImpactExplosion projectileImpactExplosion)

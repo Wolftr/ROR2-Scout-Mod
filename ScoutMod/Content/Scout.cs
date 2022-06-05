@@ -91,6 +91,15 @@ namespace ScoutMod.Modules.Survivors
         {
             Modules.Skills.CreateSkillFamilies(bodyPrefab);
             string prefix = ScoutPlugin.DEVELOPER_PREFIX;
+
+            #region Passive
+            SkillLocator skillLoc = bodyPrefab.GetComponent<SkillLocator>();
+            skillLoc.passiveSkill.enabled = true;
+            skillLoc.passiveSkill.skillNameToken = ScoutPlugin.DEVELOPER_PREFIX + "_SCOUT_BODY_PASSIVE_NAME";
+            skillLoc.passiveSkill.skillDescriptionToken = ScoutPlugin.DEVELOPER_PREFIX + "_SCOUT_BODY_PASSIVE_DESCRIPTION";
+            skillLoc.passiveSkill.icon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texPassiveIcon");
+            #endregion
+
             #region Primary
             ScattergunSkillDef scattergunSkillDef = Modules.Skills.CreateSkillDef<ScattergunSkillDef>(new SkillDefInfo
             {

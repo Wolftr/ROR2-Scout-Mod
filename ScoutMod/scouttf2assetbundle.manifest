@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 343883225
+CRC: 853594712
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 6d98eeb3a91943ebfd5a5bbcfc0ff9fb
+    Hash: ad9a43fc62018ec46a35dbd7c15d2004
   TypeTreeHash:
     serializedVersion: 2
     Hash: cc64a7fa1e187fc9eceb76c7d7d6550c
@@ -67,6 +67,7 @@ SerializeReferenceClassIdentifiers: []
 Assets:
 - Assets/ScoutAssets/Animation/maskAimBazooka.mask
 - Assets/ScoutAssets/Icons/texShotgunIcon.png
+- Assets/ScoutAssets/Icons/texMilk.png
 - Assets/ScoutAssets/Icons/texPrimaryIcon.png
 - Assets/ScoutAssets/Icons/texBazookaIcon.png
 - Assets/ScoutAssets/Icons/texMasteryAchievement.png
@@ -92,10 +93,12 @@ Assets:
 - Assets/ScoutAssets/Materials/ScoutBody.mat
 - Assets/ScoutAssets/Animation/maskLeftArm.mask
 - Assets/ScoutAssets/Icons/texScepterSpecialIcon.png
+- Assets/ScoutAssets/Icons/texCola.png
 - Assets/ScoutAssets/Icons/texMainSkin.png
 - Assets/ScoutAssets/Icons/texBazookaOutIcon.png
 - Assets/ScoutAssets/Animation/maskAimPitch.mask
 - Assets/ScoutAssets/Icons/texUziIcon.png
+- Assets/ScoutAssets/Icons/texScattergun.png
 - Assets/ScoutAssets/Mesh/sandman.fbx
 - Assets/ScoutAssets/mdlHenry.prefab
 - Assets/ScoutAssets/Icons/texBazookaIconScepter.png
@@ -117,6 +120,7 @@ Assets:
 - Assets/ScoutAssets/Textures/sandmanBallNormal.png
 - Assets/ScoutAssets/Animation/maskBandana.mask
 - Assets/ScoutAssets/Materials/ScoutHead.mat
+- Assets/ScoutAssets/Icons/texSandman.png
 - Assets/ScoutAssets/Materials/EyeRight.mat
 - Assets/ScoutAssets/Mesh/scout.fbx
 - Assets/ScoutAssets/Textures/scattergun.png

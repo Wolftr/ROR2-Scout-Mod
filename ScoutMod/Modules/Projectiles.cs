@@ -32,7 +32,7 @@ namespace ScoutMod.Modules
             ProjectileImpactExplosion ballImpactEffect = ballPrefab.GetComponent<ProjectileImpactExplosion>();
             InitializeImpactExplosion(ballImpactEffect);
 
-            ballImpactEffect.blastRadius = 16f;
+            ballImpactEffect.blastRadius = 4f;
             ballImpactEffect.destroyOnEnemy = true;
             ballImpactEffect.lifetime = 12f;
             // ballImpactEffect.impactEffect = Modules.Assets.bombExplosionEffect;
@@ -51,11 +51,12 @@ namespace ScoutMod.Modules
 
             ProjectileImpactExplosion milkImpactEffect = milkPrefab.GetComponent<ProjectileImpactExplosion>();
             InitializeImpactExplosion(milkImpactEffect);
-            milkImpactEffect.blastRadius = 16f;
+            milkImpactEffect.blastRadius = 10f;
             milkImpactEffect.destroyOnEnemy = true;
             milkImpactEffect.lifetime = 12f;
             milkImpactEffect.timerAfterImpact = true;
-            milkImpactEffect.lifetimeAfterImpact = 0.1f;
+            milkImpactEffect.lifetimeAfterImpact = 0f;
+            milkImpactEffect.GetComponent<ProjectileDamage>().damageType = DamageType.Generic;
 
             ProjectileController milkController = milkPrefab.GetComponent<ProjectileController>();
             if (Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("milkGhost") != null) milkController.ghostPrefab = CreateGhostPrefab("milkGhost");

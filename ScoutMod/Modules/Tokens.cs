@@ -47,13 +47,13 @@ namespace ScoutMod.Modules
             #endregion
 
             #region Utility
-            LanguageAPI.Add(prefix + "UTILITY_ROLL_NAME", "Roll");
-            LanguageAPI.Add(prefix + "UTILITY_ROLL_DESCRIPTION", "Roll a short distance, gaining <style=cIsUtility>300 armor</style>. <style=cIsUtility>You cannot be hit during the roll.</style>");
+            LanguageAPI.Add(prefix + "MILK_NAME", "Mad Milk");
+            LanguageAPI.Add(prefix + "MILK_DESCRIPTION", "Launch a projectile which douses enemies in a mysterious white liquid. When doused enemies are attacked, heal 60% of damage dealt.");
             #endregion
 
             #region Special
-            LanguageAPI.Add(prefix + "SPECIAL_BOMB_NAME", "Bomb");
-            LanguageAPI.Add(prefix + "SPECIAL_BOMB_DESCRIPTION", $"");
+            LanguageAPI.Add(prefix + "COLA_NAME", "Crit-a Cola");
+            LanguageAPI.Add(prefix + "COLA_DESCRIPTION", $"Drink a can of Crit-a Cola, raising your base damage by 35% while under its effects.");
             #endregion
 
             #region Achievements

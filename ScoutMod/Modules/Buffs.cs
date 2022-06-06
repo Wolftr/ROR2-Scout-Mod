@@ -7,10 +7,13 @@ namespace ScoutMod.Modules
     public static class Buffs
     {
         internal static BuffDef miniCritBuff;
+        internal static BuffDef madMilkDebuff;
 
         internal static void RegisterBuffs()
         {
             miniCritBuff = AddNewBuff("Scout Mini-Crit Buff", RoR2.LegacyResourcesAPI.Load<Sprite>("Textures/BuffIcons/texBuffGenericShield"), ScoutPlugin.scoutColor, false, false);
+            madMilkDebuff = AddNewBuff("Milked", Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texMadMilkDebuff"), Color.white, false, false);
+            
         }
 
         // simple helper method

@@ -155,14 +155,14 @@ namespace ScoutMod.Modules.Survivors
             #endregion
 
             #region Utility
-            SkillDef rollSkillDef = Modules.Skills.CreateSkillDef(new SkillDefInfo
+            SkillDef milkSkillDef = Modules.Skills.CreateSkillDef(new SkillDefInfo
             {
-                skillName = prefix + "_SCOUT_BODY_UTILITY_ROLL_NAME",
-                skillNameToken = prefix + "_SCOUT_BODY_UTILITY_ROLL_NAME",
-                skillDescriptionToken = prefix + "_SCOUT_BODY_UTILITY_ROLL_DESCRIPTION",
+                skillName = prefix + "_SCOUT_BODY_MILK_NAME",
+                skillNameToken = prefix + "_SCOUT_BODY_MILK_NAME",
+                skillDescriptionToken = prefix + "_SCOUT_BODY_MILK_DESCRIPTION",
                 skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texUtilityIcon"),
-                activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.Roll)),
-                activationStateMachineName = "Body",
+                activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.Scout.MadMilk)),
+                activationStateMachineName = "Slide",
                 baseMaxStock = 1,
                 baseRechargeInterval = 4f,
                 beginSkillCooldownOnSkillEnd = false,
@@ -176,18 +176,19 @@ namespace ScoutMod.Modules.Survivors
                 cancelSprintingOnActivation = false,
                 rechargeStock = 1,
                 requiredStock = 1,
-                stockToConsume = 1
+                stockToConsume = 1,
+                keywordTokens = new string[] { "KEYWORD_AGILE" }
             });
 
-            Modules.Skills.AddUtilitySkills(bodyPrefab, rollSkillDef);
+            Modules.Skills.AddUtilitySkills(bodyPrefab, milkSkillDef);
             #endregion
 
             #region Special
             SkillDef colaSkillDef = Modules.Skills.CreateSkillDef(new SkillDefInfo
             {
-                skillName = prefix + "_SCOUT_BODY_BAT_NAME",
-                skillNameToken = prefix + "_SCOUT_BODY_BAT_NAME",
-                skillDescriptionToken = prefix + "_SCOUT_BODY_BAT_DESCRIPTION",
+                skillName = prefix + "_SCOUT_BODY_COLA_NAME",
+                skillNameToken = prefix + "_SCOUT_BODY_COLA_NAME",
+                skillDescriptionToken = prefix + "_SCOUT_BODY_COLA_DESCRIPTION",
                 skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texSpecialIcon"),
                 activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.Scout.DrinkCola)),
                 activationStateMachineName = "Slide",

@@ -7,6 +7,7 @@ using System.Security;
 using System.Security.Permissions;
 using UnityEngine;
 using System;
+using RoR2.Projectile;
 
 [module: UnverifiableCode]
 [assembly: SecurityPermission(SecurityAction.RequestMinimum, SkipVerification = true)]
@@ -57,15 +58,17 @@ namespace ScoutMod
 
             Hook();
         }
-        
+
         private void Hook()
         {
             // run hooks here, disabling one is as simple as commenting out the line
             On.RoR2.CharacterBody.RecalculateStats += CharacterBody_RecalculateStats;
             On.RoR2.TeleporterInteraction.Start += Teleporter_StartEvent;
+            On.RoR2.HealthComponent.TakeDamage += HealthComponent_TakeDamage;
+            GlobalEventManager.onServerDamageDealt += GlobalEventManager_OnDamageDealt;
         }
 
-		private void CharacterBody_RecalculateStats(On.RoR2.CharacterBody.orig_RecalculateStats orig, CharacterBody self)
+        private void CharacterBody_RecalculateStats(On.RoR2.CharacterBody.orig_RecalculateStats orig, CharacterBody self)
         {
             orig(self);
 
@@ -78,8 +81,8 @@ namespace ScoutMod
             }
         }
 
-		private void Teleporter_StartEvent(On.RoR2.TeleporterInteraction.orig_Start orig, TeleporterInteraction self)
-		{
+        private void Teleporter_StartEvent(On.RoR2.TeleporterInteraction.orig_Start orig, TeleporterInteraction self)
+        {
             orig(self);
 
             if (self.holdoutZoneController.holdoutZoneShape == HoldoutZoneController.HoldoutZoneShape.Count)
@@ -87,20 +90,46 @@ namespace ScoutMod
 
             // Bind the function for adding the charge rate
             self.holdoutZoneController.calcChargeRate += RecalculateChargeRate;
-		}
+        }
 
         public void RecalculateChargeRate(ref float rate)
-		{
+        {
             bool hasScoutTeamMember = false;
 
             IReadOnlyCollection<TeamComponent> teamComponents = TeamComponent.GetTeamMembers(TeamIndex.Player);
 
-			foreach (TeamComponent component in teamComponents)
+            foreach (TeamComponent component in teamComponents)
                 if (component.body.bodyIndex == BodyCatalog.FindBodyIndex("ScoutBody"))
                     hasScoutTeamMember = true;
 
             if (hasScoutTeamMember)
                 rate *= 2;
-		}
+        }
+
+        public void HealthComponent_TakeDamage(On.RoR2.HealthComponent.orig_TakeDamage orig, HealthComponent self, DamageInfo damageInfo)
+        {
+            orig(self, damageInfo);
+
+            CharacterBody characterBody = self.body;
+            if (characterBody && damageInfo.attacker.GetComponent<CharacterBody>().baseNameToken == ScoutPlugin.DEVELOPER_PREFIX + "_SCOUT_BODY_NAME" && damageInfo.damage < 1)
+            {
+                DamageReport report = new DamageReport(damageInfo, self, 0.01f, 9999f);
+                Modules.Projectiles.milkPrefab.GetComponent<ProjectileInflictTimedBuff>().OnDamageInflictedServer(report);
+            }
+        }
+
+        private void GlobalEventManager_OnDamageDealt(DamageReport report)
+        {
+            if(report.attackerBody && report.victimBody)
+            {
+                int buffNumber = report.victimBody.GetBuffCount(Modules.Buffs.madMilkDebuff);
+
+                if (buffNumber >= 1)
+                {
+                    CharacterBody attackerBody = report.attackerBody;
+                    attackerBody.healthComponent.Heal(report.damageDealt * 0.6f, default(ProcChainMask), true);
+                }
+            }
+        }
     }
 }

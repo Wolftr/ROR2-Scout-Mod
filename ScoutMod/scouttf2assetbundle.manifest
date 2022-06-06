@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 853594712
+CRC: 3812907133
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: ad9a43fc62018ec46a35dbd7c15d2004
+    Hash: babb4d6f2d70a2e6aacb8aef0b959510
   TypeTreeHash:
     serializedVersion: 2
     Hash: cc64a7fa1e187fc9eceb76c7d7d6550c
@@ -66,63 +66,45 @@ ClassTypes:
 SerializeReferenceClassIdentifiers: []
 Assets:
 - Assets/ScoutAssets/Animation/maskAimBazooka.mask
-- Assets/ScoutAssets/Icons/texShotgunIcon.png
-- Assets/ScoutAssets/Icons/texMilk.png
-- Assets/ScoutAssets/Icons/texPrimaryIcon.png
-- Assets/ScoutAssets/Icons/texBazookaIcon.png
-- Assets/ScoutAssets/Icons/texMasteryAchievement.png
 - Assets/ScoutAssets/ScoutDisplay.prefab
 - Assets/ScoutAssets/Icons/texPassiveIcon.png
 - Assets/ScoutAssets/Textures/scout_head.png
 - Assets/ScoutAssets/Materials/Sandman.mat
 - Assets/ScoutAssets/Animation/maskAimYaw.mask
-- Assets/ScoutAssets/Icons/texDanteAchievement.png
-- Assets/ScoutAssets/Icons/texSecondaryIcon.png
 - Assets/ScoutAssets/Animation/animScout.controller
 - Assets/ScoutAssets/milkGhost.prefab
-- Assets/ScoutAssets/Icons/texHenryAchievement.png
+- Assets/ScoutAssets/Icons/texSandman.png
 - Assets/ScoutAssets/Animation/maskGesture.mask
 - Assets/ScoutAssets/Textures/sandmanBall.png
 - Assets/ScoutAssets/ballGhost.prefab
 - Assets/ScoutAssets/Animation/animScoutMenu.controller
-- Assets/ScoutAssets/Icons/texVergilAchievement.png
 - Assets/ScoutAssets/Animation/maskImpact.mask
 - Assets/ScoutAssets/Textures/eyeball_r.png
 - Assets/ScoutAssets/Textures/sandman.png
 - Assets/ScoutAssets/Materials/SandmanBall.mat
 - Assets/ScoutAssets/Materials/ScoutBody.mat
 - Assets/ScoutAssets/Animation/maskLeftArm.mask
-- Assets/ScoutAssets/Icons/texScepterSpecialIcon.png
-- Assets/ScoutAssets/Icons/texCola.png
 - Assets/ScoutAssets/Icons/texMainSkin.png
-- Assets/ScoutAssets/Icons/texBazookaOutIcon.png
 - Assets/ScoutAssets/Animation/maskAimPitch.mask
-- Assets/ScoutAssets/Icons/texUziIcon.png
-- Assets/ScoutAssets/Icons/texScattergun.png
 - Assets/ScoutAssets/Mesh/sandman.fbx
 - Assets/ScoutAssets/mdlHenry.prefab
-- Assets/ScoutAssets/Icons/texBazookaIconScepter.png
-- Assets/ScoutAssets/Icons/texBoxingGlovesIcon.png
 - Assets/ScoutAssets/Textures/scout_red.png
-- Assets/ScoutAssets/Icons/texUtilityIcon.png
+- Assets/ScoutAssets/Icons/texMilk.png
 - Assets/ScoutAssets/mdlScout.prefab
 - Assets/ScoutAssets/Textures/eyeball_l.png
 - Assets/ScoutAssets/Materials/EyeLeft.mat
+- Assets/ScoutAssets/Icons/texScattergun.png
 - Assets/ScoutAssets/Materials/Scattergun.mat
 - Assets/ScoutAssets/Icons/texMadMilkDebuff.png
 - Assets/ScoutAssets/Mesh/sandmanBall.fbx
 - Assets/ScoutAssets/Icons/texScoutIcon.png
-- Assets/ScoutAssets/Icons/texStingerIcon.png
 - Assets/ScoutAssets/Materials/BallTrailMat.mat
-- Assets/ScoutAssets/Icons/texPistolIcon.png
+- Assets/ScoutAssets/Icons/texCola.png
 - Assets/ScoutAssets/Mesh/scattergun.fbx
-- Assets/ScoutAssets/Icons/texBazookaFireIcon.png
 - Assets/ScoutAssets/Textures/sandmanBallNormal.png
 - Assets/ScoutAssets/Animation/maskBandana.mask
 - Assets/ScoutAssets/Materials/ScoutHead.mat
-- Assets/ScoutAssets/Icons/texSandman.png
 - Assets/ScoutAssets/Materials/EyeRight.mat
 - Assets/ScoutAssets/Mesh/scout.fbx
 - Assets/ScoutAssets/Textures/scattergun.png
-- Assets/ScoutAssets/Icons/texSpecialIcon.png
 Dependencies: []
